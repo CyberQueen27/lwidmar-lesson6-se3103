@@ -17,6 +17,7 @@ import controller.StrategyButtonListener;
 import model.Marking;
 import model.PlayStrategy;
 import model.TicTacToeGame;
+import view.statePattern.GameState;
 
 public class AppWindow extends JFrame{
 
@@ -28,6 +29,8 @@ public class AppWindow extends JFrame{
     private JButton newGameButton = new JButton("New Game");
     private JRadioButton vsHumanButton;
     private JRadioButton vsComputerButton;
+
+    private GameState state;
 
     public void init(){
         var cp = getContentPane();
@@ -75,6 +78,14 @@ public class AppWindow extends JFrame{
 
         updateWindow();
     }    
+
+    public GameState getGameState(){
+        return state;
+    }
+
+    public void setGameState(GameState state){
+        this.state = state;
+    }
 
     public void updateWindow(){
         TicTacToeGame game = App.game;
